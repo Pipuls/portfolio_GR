@@ -1,0 +1,36 @@
+
+.navbar-brand{
+    margin-left: 1rem;
+    
+}
+.navbar-toggler {
+    margin-right: 1.5rem;
+}
+
+.navbar-nav{
+    margin-right: 2rem;
+}
+.nav-item{
+    align-items: center;
+}
+
+   
+h3{
+    color: #fff;
+    text-align: left;
+    margin-left: 3rem;
+    
+}
+
+i:hover {
+    text-shadow: 0 0 10px rgb(59, 70, 230);   
+}
+a:hover {
+    text-shadow: 0 0 10px rgb(59, 70, 230);   
+}
+.container{
+    margin-top: 25%
+}
+img {
+    max-width: 100%;
+    }

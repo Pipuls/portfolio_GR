@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "Ikaros";
+    src: url("../src/assets/fonts/Ikaros.ttf") format("truetype");
+    font-family: "Inter-Medium";
+    src: url("../src/assets/fonts/Inter-Medium.ttf") format("truetype");
+}
+
+body {
+    background-color: rgb(4, 10, 18);
+    font-family: Ikaros;
+    color: rgb(62, 111, 216);
+    font-size: 2rem;
+    line-height: 1.4em;
+    margin: 0;
+}
+/*----------------------------------------------------------------
+h1 {
+    font-family: Inter-Medium, monospace Ikaros;
+    color: white;
+}
+h2 {
+    font-family: Inter-Medium;
+    color: #fff;
+}
+*/

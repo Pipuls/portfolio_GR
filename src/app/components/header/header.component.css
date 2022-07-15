@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;  
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+h1 {
+    color: white;
+    font-size: 2.8rem;
+    font-weight: 900;
+}
+h2 {
+    font-family: inter-Medium, verdana, arial, helvetica, sans-serif;
+    color: rgb(25, 65, 175);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.text-box{
+    position: absolute;
+    right: 15vw;
+    top: 28vw;
+}
+.text-box h1{
+    font-size: 5vw;
+    padding-bottom: 1vh;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.226);
+    background: url('../../../assets/images/fondoLetras.png');
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    animation: back 20s linear infinite;
+}
+@keyframes back {
+    100%{
+        background-position: -500px 500px;
+    }
+    
+}
+
+.text-box h2{
+    font-size: 3vw;
+    
+}
+
+.header-background{
+    width: 100%;
+    z-index: -10;
+}
+.profilePic{
+    z-index: 10;
+    width: 40%;
+    margin-left: calc(1em + 10%);
+    margin-top: calc(1em - 70%)
+}
+.nombreyTitulo{
+    z-index: 15;
+    text-align: right;
+
+}
+@media (min-width:1200px){
+    .text-box{
+        position: absolute;
+        right: 15vw;
+        top: calc(20vw + 5%);
+    }
+  
+}
+@media (min-width: 575px) and (max-width:767px){
+.profilePic{
+    width: 35%;
+    height: auto;
+}
+.text-box{
+    right: 15vw;
+    top: calc(20vw + 8%);
+}
+
+}
+@media (max-width:574px){
+    .profilePic{
+        width: 50%;
+        height: auto;
+        margin: auto;
+        margin-top: -10vw;
+        
+    }
+    .text-box{
+        top: calc(20vw + 8%);
+        right: calc(20vw + 12%);
+    }
+}
