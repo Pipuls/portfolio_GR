@@ -1,36 +1,38 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Rubik', sans-serif;  
-}
-
-img{
-    width: 100%;
-    height: auto;
-}
+/*
+.div{
+    background-image: url(../../../assets/images/fondoskyLG.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}*/
 h1 {
     color: white;
     font-size: 2.8rem;
     font-weight: 900;
 }
 h2 {
-    font-family: inter-Medium, verdana, arial, helvetica, sans-serif;
+    font-family: Ubuntu;
     color: rgb(25, 65, 175);
     font-size: 1.5rem;
     font-weight: bold;
+    line-height: 2.5rem;
 }
 .text-box{
     position: absolute;
     right: 15vw;
     top: 28vw;
+    background-color: transparent;
 }
 .text-box h1{
+    padding-top: 1vh;
     font-size: 5vw;
-    padding-bottom: 1vh;
+    
     color: transparent;
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.226);
     background: url('../../../assets/images/fondoLetras.png');
     -webkit-background-clip: text;
+    background-clip: text;
     background-position: 0 0;
     animation: back 20s linear infinite;
 }
@@ -38,58 +40,82 @@ h2 {
     100%{
         background-position: -500px 500px;
     }
-    
 }
 
 .text-box h2{
-    font-size: 3vw;
-    
+    font-size: 2.8vw;
+    line-height: 1.2;
 }
 
-.header-background{
+.imgBg{
     width: 100%;
     z-index: -10;
 }
+
 .profilePic{
     z-index: 10;
-    width: 40%;
+    width: 35%;
     margin-left: calc(1em + 10%);
-    margin-top: calc(1em - 70%)
+    margin-top: -90%;
 }
 .nombreyTitulo{
     z-index: 15;
     text-align: right;
 
 }
+/*
 @media (min-width:1200px){
     .text-box{
         position: absolute;
         right: 15vw;
         top: calc(20vw + 5%);
     }
+    .profilePic{
+        width: 35%;
+        height: auto;
+        position: relative;
+        margin-top: -300%;
+    }
+    *{
+        margin-bottom: 13vh;
+    }
   
-}
+}*/
 @media (min-width: 575px) and (max-width:767px){
 .profilePic{
-    width: 35%;
+    width: 30%;
     height: auto;
+    position: relative;
+    margin-top: -90%;
 }
 .text-box{
     right: 15vw;
-    top: calc(20vw + 8%);
+    top: 30vw;
+}
+.text-box h1{
+    padding-top: 1vh;
+    
+}
+
+h2 {
+    line-height: .0075rem;
 }
 
 }
 @media (max-width:574px){
+   
     .profilePic{
         width: 50%;
+        position: relative;
         height: auto;
-        margin: auto;
-        margin-top: -10vw;
+        align-items: center;
+        margin-top: 3vw;
+        margin-left: 20%;
         
     }
     .text-box{
-        top: calc(20vw + 8%);
+        top: 35vw;
         right: calc(20vw + 12%);
     }
+
 }

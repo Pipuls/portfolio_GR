@@ -1,22 +1,25 @@
 <!-- Barra de navegacion -->
-<nav class="navbar navbar-expand-lg navbar-dark border-bottom" style="background-color: rgb(10, 18, 29)" aria-label="barNavegacion">
+<div class="navBarFija" id="nav">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <!-- Contenedor de la barra -->
-    <div class="container-fluid">
+    <div class="container-fluid navbarcontent">
         <!-- Brand logo AP -->
         <a class="navbar-brand"
             href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa"
             target="_blank" rel="noopener noreferrer">
-            <img src="../../../assets/icons/APLogo.png" alt="Argentina Programa" width="125 em" height="90 em" />
+            <img src="../../../assets/icons/APLogo.png" alt="Argentina Programa" width="125 em" height="90 em"/>
             <span class="text-primary">#YOPROGRAMO</span>
         </a>
         <!-- Toggler para pantallas chicas -->
         <button class="navbar-toggler btn btn-outline-primary" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarMenu"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-list"></i>
+            <span class="navbar-toggler-icon"></span>
+            <span></span>
+            <span></span>                     
         </button>
         <!-- Menu de navegacion -->
         <div class="collapse navbar-collapse" id="navbarMenu">
-            <ul class="navbar-nav ms-lg-auto mb-2 mb-lg-0 ms-5">
+            <ul class="navbar-nav me-5 mb-2 mb-lg-0 ms-auto">
                 <!-- Menu de componentes de la web -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle"
@@ -30,17 +33,20 @@
             <!-- Componentes del portfolio -->
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li>
-                        <a class="dropdown-item" href="#">Acerca de</a>
+                        <a class="dropdown-item" href="#aboutus">Acerca de</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">Experiencia Laboral</a>
+                        <a class="dropdown-item" href="#jobXp">Experiencia Laboral</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">Skils</a>
+                        <a class="dropdown-item" href="#education">Estudios</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#hysSkils">Skils</a>
                     </li>
                     <li><hr class="dropdown-divider" /></li>
                     <li>
-                        <a class="dropdown-item" href="#">Contacto</a>
+                        <a class="dropdown-item" href="#contact">Contacto</a>
                     </li>
                 </ul>
 <!-- lista redes sociales -->
@@ -83,4 +89,4 @@
         </div>
     </div>
 </nav>
-
+</div>

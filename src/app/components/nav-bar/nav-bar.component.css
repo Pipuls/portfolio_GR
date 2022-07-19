@@ -1,7 +1,11 @@
-
+div{
+    background-color: #0a121d;
+}
+.navbar{
+    border-bottom: 1px solid #fff;
+}
 .navbar-brand{
     margin-left: 1rem;
-    
 }
 .navbar-toggler {
     margin-right: 1.5rem;
@@ -13,20 +17,19 @@
 .nav-item{
     align-items: center;
 }
-
-   
+ 
 h3{
     color: #fff;
     text-align: left;
     margin-left: 3rem;
-    
 }
 
 i:hover {
-    text-shadow: 0 0 10px rgb(59, 70, 230);   
+    
+    text-shadow: 0 0 10px rgb(81, 185, 245);   
 }
 a:hover {
-    text-shadow: 0 0 10px rgb(59, 70, 230);   
+     text-shadow: 0 0 10px rgb(81, 185, 245);   
 }
 .container{
     margin-top: 25%
@@ -34,3 +37,4 @@ a:hover {
 img {
     max-width: 100%;
     }
+

@@ -1,25 +1,52 @@
-@font-face {
-    font-family: "Ikaros";
-    src: url("../src/assets/fonts/Ikaros.ttf") format("truetype");
-    font-family: "Inter-Medium";
-    src: url("../src/assets/fonts/Inter-Medium.ttf") format("truetype");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+html{
+    scroll-behavior: smooth;
+}
+
+div {
+    background-color: #323a45;
+    font-family: Ubuntu, Poppins;
+    color: rgb(147, 178, 247);
+    font-size: 18px;
+    line-height: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-color: rgb(4, 10, 18);
-    font-family: Ikaros;
-    color: rgb(62, 111, 216);
-    font-size: 2rem;
-    line-height: 1.4em;
     margin: 0;
+    padding: 0;
 }
-/*----------------------------------------------------------------
-h1 {
-    font-family: Inter-Medium, monospace Ikaros;
-    color: white;
+a {
+    color: rgb(147, 178, 247);
+    font-weight: 500;
 }
-h2 {
-    font-family: Inter-Medium;
-    color: #fff;
+
+a:hover {
+   color: rgb(252, 56, 56);
 }
-*/
+.gototopbtn .fa{
+    
+    margin-top: 10px;
+}
+.gototopbtn {
+    z-index: 50;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    background: #bdd1ee9a;
+    border-radius: 10%;
+    font-size: 2.5rem;
+    right: 50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 47px;
+}
+
+.gototopbtn:hover {
+    background: #15335fb6;
+    
+}
