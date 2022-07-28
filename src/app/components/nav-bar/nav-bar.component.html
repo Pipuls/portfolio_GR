@@ -45,6 +45,8 @@
                         <a class="dropdown-item" href="#hysSkils">Skils</a>
                     </li>
                     <li><hr class="dropdown-divider" /></li>
+                        <a class="dropdown-item" href="#proyectos">Proyectos</a>
+                    <li><hr class="dropdown-divider" /></li>
                     <li>
                         <a class="dropdown-item" href="#contact">Contacto</a>
                     </li>
@@ -79,9 +81,14 @@
                     <li><hr class="dropdown-divider" /></li>
                  <!-- boton Editar -->
                 <li class="nav-item d-flex flex-row-reverse pe-0 me-0">
-                    <button class="btn btn-outline-primary d-inline-block pe-3 ps-3 pt-lg-1 pb-lg-1 p-lg-2">
-                        <a class="nav-link" href="/login">
-                            <i class="bi bi-pencil-square"></i>
+                    <button class="btn btn-outline-primary d-inline-block pe-3 ps-3 pt-lg-1 pb-lg-1 p-lg-2" (click)="logIn()" *ngIf="!isLogged">
+                        <a class="nav-link">
+                            <i class="bi bi-box-arrow-in-right"> </i> Iniciar Sesión
+                        </a>
+                    </button>
+                    <button class="btn btn-outline-primary d-inline-block pe-3 ps-3 pt-lg-1 pb-lg-1 p-lg-2" (click)="onLogOut()" *ngIf="isLogged">
+                        <a class="nav-link">
+                            <i class="bi bi-x-square"> </i> Cerrar Sesión
                         </a>
                     </button>
                 </li>
