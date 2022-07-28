@@ -11,13 +11,8 @@
 .eduDer {
     margin-top: 0;
     padding: 1rem 3rem 1rem 3rem;
-    font-size: 1.1rem;
-    color: #b1b4bd;
-    line-height: 1.5;
     text-align: justify;
- 
+  }
+ .card{
+    background-color: transparent;
  }
- 
-ul {
-    list-style-type: none;
-}

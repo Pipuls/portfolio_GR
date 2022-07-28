@@ -3,10 +3,18 @@
 
 html{
     scroll-behavior: smooth;
+    
+}
+body{
+    background-image: url('../src/assets/images/portfoliofondo.jpg');
+    background-size: 10%;
+    background-repeat: repeat;
 }
 
+
 div {
-    background-color: #323a45;
+    
+    background-color: transparent;
     font-family: Ubuntu, Poppins;
     color: rgb(147, 178, 247);
     font-size: 18px;
@@ -18,6 +26,7 @@ div {
 body {
     margin: 0;
     padding: 0;
+    
 }
 a {
     color: rgb(147, 178, 247);
