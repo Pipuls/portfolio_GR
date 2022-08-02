@@ -19,6 +19,7 @@
               <table class="table text-secondary">
                 <thead class="bg-light text-primary">
                   <tr>
+                    <th></th>
                     <th>Título</th>
                     <th>Institución</th>
                     <th>Lugar</th>
@@ -27,6 +28,7 @@
                 </thead>
                 <tbody class="bg-dark">
                   <tr class="text-light" *ngFor="let Education of educ">
+                    <td><img Style="width: 150px" data-aos="zoom-in" src="../{{ Education.logoE }}" alt="logo"></td>
                     <td class="fs-5">
                       {{ Education.tituloE }}
                       <span class="m-1 bg-info badge rounded-pill">
