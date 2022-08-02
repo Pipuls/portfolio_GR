@@ -17,6 +17,10 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { interceptorProvider } from './service/iterceptor-service';
+import { NewXpComponent } from './components/job-xp/new-xp.component';
+import { EditXpComponent } from './components/job-xp/edit-xp.component';
+import { NewEduComponent } from './components/education/new-edu.component';
+import { EditEduComponent } from './components/education/edit-edu.component';
 
 
 
@@ -34,6 +38,10 @@ import { interceptorProvider } from './service/iterceptor-service';
     ProjectsComponent,
     LoginComponent,
     HomeComponent,
+    NewXpComponent,
+    EditXpComponent,
+    NewEduComponent,
+    EditEduComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,63 @@
 <div class="container-fluid" id="education">
-    <div class="row">
-        <div class="col-sm-12 col-md-6 eduIzq">
-            
-        </div>
-        <div class="col-sm-12 col-md-6 eduDer">
-            <h2 class="text-center text-primary pt-4 pb-4">Estudios Realizados</h2>
-            <div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 eduIzq"></div>
+    <!-- Título y boton para añadir -->
+    <div class="col-sm-12 col-md-6 eduDer">
+      <h2 class="text-center text-primary pt-4 pb-4">Estudios Realizados</h2>
+      <div>
+        <button
+          type="button"
+          class="col-12 btn btn-primary mb-2"
+          routerLink="/newedu"
+          *ngIf="isLogged"
+        >
+          <i class="bi bi-plus-circle"></i> Nueva Educación
+        </button>
+      </div>
+      <!-- Educacion con Tabla -->
+            <div class="col-lg-12 shadow">
+              <table class="table text-secondary">
+                <thead class="bg-light text-primary">
+                  <tr>
+                    <th>Título</th>
+                    <th>Institución</th>
+                    <th>Lugar</th>
+                    <th colspan="2" *ngIf="isLogged">Edición</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-dark">
+                  <tr class="text-light" *ngFor="let Education of educ">
+                    <td class="fs-5">
+                      {{ Education.tituloE }}
+                      <span class="m-1 bg-info badge rounded-pill">
+                        {{ Education.anoE }}</span>
+                    </td>
+                    <td>{{ Education.institucionE }}</td>
+                    <td>{{ Education.lugarE }}</td>
+                    <td *ngIf="isLogged">
+                      <button
+                        class="btn btn-outline-primary"
+                        routerLink="/editedu/{{ Education.id }}"
+                      >
+                        <i class="bi bi-pencil-square"></i>
+                      </button>
+                    </td>
+                    <td *ngIf="isLogged">
+                      <button
+                        class="btn btn-outline-danger"
+                        (click)="delete(Education.id)"
+                      >
+                        <i class="bi bi-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tarjetas con educaciones -->
+          <!--div class="row row-cols-1 row-cols-md-2 g-4">
                 <div class="col" data-aos="zoom-in">
                   <div  class="card shadow-15-strong">
                     <img src="../../../assets/icons/study-ap.jpg" alt="logoAP" class="card-img-top"/>
@@ -109,56 +161,8 @@
                     </div>
                   </div>
              </div>
-            
-            <!--ul>
-                <li>
-                    <div class="card ">
-                        <div class="face front">
-                            <img src="../../../assets/icons/study-ap.jpg" alt="logoAP">
-                            <h4 class="text-primary d-flex align-items-center justify-content-center">DESARROLLADOR FULL STACK jr</h4>
-                        </div>
-                        <div class="face back">
-                            <h4 class="text-primary fs-4">Desarrollador Full Stack jr</h4>
-                            <p>Argentina Programa <br>
-                                Ministerio de Desarrollo Productivo</p>
-                            <h5 class="text-info d-flex justify-content-end">2022</h5>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="card w-50">
-
-                    </div>
-                </li>
-                <li>
-                    <h4 class="text-primary fs-4">MAESTRÍA EN URBANISMO</h4><h5 class="text-secondary">2019</h5>
-                    <h4>UNC - Facultad de arquitectura y diseño industria</h4>
-                </li>
-                <li>
-                    <p>Primer año cursado completo.</p>
-                </li>
-                <li>
-                    <h4 class="text-primary fs-4">ARQUITECTO</h4><h5 class="text-secondary">2016</h5>
-                    <h4>UNC - Facultad de arquitectura y diseño industrial</h4>
-                </li>
-                <li>
-                    <p>Estudios finalizados.</p>
-                </li>  
-                <li>
-                    <h4 class="text-primary fs-4">TÉCNICO EN ARMADO Y REPARACIÓN DE PC</h4><h5 class="text-secondary">2003</h5>
-                    <h4>Instituto F.U.C.E. - Córdoba</h4>
-                </li>
-                <li>
-                    <p>Estudios finalizados.</p>
-                </li>
-                <li>
-                    <h4 class="text-primary fs-4">BACHILLER EN ECONOMÍA Y GESTIÓN DE LAS ORGANIZACIONES</h4><h5 class="text-secondary">2001</h5>
-                    <h4>Instituto privado diocesano Dr. Alexis Carrel - Río Tercero</h4>
-                </li>
-                <li>
-                    <p>Estudios finalizados.</p>
-                </li>      
-            </ul-->
         </div>
     </div>
-</div>
+</div-->
+        </div>
+      </div>

@@ -1,5 +1,9 @@
+.navbarcontent{
+    z-index: 10;
+}
 div{
     background-color: #0a121d;
+    
 }
 .navbar{
     border-bottom: 1px solid #fff;

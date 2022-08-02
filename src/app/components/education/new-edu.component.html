@@ -1,0 +1,35 @@
+<section class="vh-100 p-5">
+    <div class="container p-5 h-100 shadow bg-dark">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+            <h2 class="text-center">Agregar nueva educación</h2>
+            <div class="col-md-4 col-lg-4 col-xl-3 ">
+                    <img src="../../../assets/images/explab.png" class="img-fluid" alt="explab">
+            </div>
+            <div class="col-md-8 col-lg-7 col-xl-8 offset-xl-1">
+                <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                    
+                    <div class="form-group mb-2">
+                        <label class="p-2 text-primary" for="tituloE">Nombre del título obtenido</label>
+                        <input type="text" class="form-control" id="tituloE" name="tituloE" [(ngModel)]="tituloE" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label class="p-2 text-primary" for="anoE">Año de cusrsado</label>
+                        <input type="text" class="form-control" id="anoE" name="anoE" [(ngModel)]="anoE" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label class="p-2 text-primary" for="institucionE">Institución académica</label>
+                        <input type="text" class="form-control" id="institucionE" name="institucionE" [(ngModel)]="institucionE" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label class="p-2 text-primary" for="lugarE">Lugar de cursado</label>
+                        <input type="text" class="form-control" id="lugarE" name="lugarE" [(ngModel)]="lugarE" required>
+                    </div>
+                    <button class="btn btn-primary mt-3">
+                        <i class="bi bi-file-earmark-plus"></i> Enviar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </section>
+    
