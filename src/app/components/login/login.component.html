@@ -33,9 +33,9 @@
             </div>
   
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Iniciar sesión</button>
-  
+            <button type="submit" class="btn btn-primary btn-lg btn-block"[disabled]="!f.valid"><i class="bi bi-box-arrow-in-right"></i> Iniciar sesión</button>
           </form>
+          <div *ngIf="f.submitted && isLogginFail" class="alert alert-danger mt-3">Error de autenticación: {{errMsj}}</div>
         </div>
       </div>
     </div>

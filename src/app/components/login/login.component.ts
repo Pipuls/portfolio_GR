@@ -13,11 +13,11 @@ import { TokenService } from 'src/app/service/token.service';
 export class LoginComponent implements OnInit {
   isLogged = false;
   isLogginFail = false;
-  loginUsuario!: LoginUsuario;
-  nombreUsuario!: string;
-  password!: string;
+  loginUsuario: LoginUsuario;
+  nombreUsuario: string;
+  password: string;
   roles: string[] = [];
-  errMsj!: string;
+  errMsj: string;
 
   constructor(private tokenService: TokenService, private authService: AuthService, private router: Router) { }
 
@@ -33,15 +33,18 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginUsuario).subscribe(data => {
         this.isLogged = true;
         this.isLogginFail = false;
+        
         this.tokenService.setToken(data.token);
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
+
+        this.roles = data.authorities;
         this.router.navigate([''])
       }, err => {
         this.isLogged = false;
         this.isLogginFail = true;
-        this.errMsj = err.error.mensaje;
-        console.log(this.errMsj);
+        this.errMsj = err.error.message;
+        console.log(err.error.message);
       })
   }
 

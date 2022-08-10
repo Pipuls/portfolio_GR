@@ -24,6 +24,7 @@ import { EditEduComponent } from './components/education/edit-edu.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
