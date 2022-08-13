@@ -4,17 +4,168 @@
     <!-- Título y boton para añadir -->
     <div class="col-sm-12 col-md-6 eduDer">
       <h2 class="text-center text-primary pt-4 pb-4">Estudios Realizados</h2>
-      <div>
-        <button
+      <div class="text-end">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#newEducationM">
+          <i class="bi bi-file-earmark-plus"></i> Agregar educación
+        </button>
+
+        <!--button
           type="button"
           class="col-12 btn btn-primary mb-2"
           routerLink="/newedu"
           *ngIf="isLogged"
         >
           <i class="bi bi-plus-circle"></i> Nueva Educación
-        </button>
+        </button-->
       </div>
-      <!-- Educacion con Tabla -->
+
+      <!-- Tarjetas con educaciones -->
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col" data-aos="zoom-in" *ngFor="let education of educ">
+          <div class="card shadow-15-strong">
+            <img src="{{education.logoE}}" alt="logoE" class="card-img-top" />
+            <button class="btn btn-dark text-primary" type="button" data-mdb-toggle="collapse"
+              data-mdb-target="#study-ap" aria-expanded="false" aria-controls="collapseExample">
+              <i class="bi bi-chevron-compact-down"></i>
+            </button>
+            <div class="collapse" id="study-ap">
+              <div class="card-body bg-dark text-light">
+                <h5 class="card-title text-center text-primary">{{education.titleE}}</h5>
+                <p class="card-text fs-6 text-start">
+                  {{education.institutionE}} <br>
+                  <em class="text-secondary">{{education.placeE}}</em>
+                </p>
+              </div>
+              <div class="card-footer bg-dark border-light text-info">
+                {{education.yearE}}
+              </div>
+              <div>
+                <button type="button" class="btn btn-outline-primary"data-mdb-toggle="modal" data-mdb-target="#editEducationM">
+                  <i class="bi bi-pencil-square"></i>
+                </button>
+                <button type="button" class="btn btn-outline-danger" data-mdb-toggle="modal" data-mdb-target="#deleteEducationM">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal agregar educacion-->
+    <div class="modal fade" id="newEducationM" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar nueva educación</h5>
+            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form #addForm="ngForm" (ngSubmit)="onAddEducation(addForm)">
+            <div class="form-outline mb-5 mt-3">
+              <input type="text" id="titleENew" class="form-control" placeholder="Nombre del título obtenido"
+                required />
+              <label class="form-label" for="formNewEdu">Título</label>
+            </div>
+            <div class="form-outline mb-5">
+              <input type="text" id="institutionENew" class="form-control" placeholder="Nombre de la institución"
+                required />
+              <label class="form-label" for="formNewEdu">Institución</label>
+            </div>
+            <div class="form-outline mb-5">
+              <input type="text" id="placeENew" class="form-control"
+                placeholder="Ciudad o plataforma en la que se realizó el estudio" required />
+              <label class="form-label" for="formNewEdu">Lugar</label>
+            </div>
+            <div class="form-outline mb-5">
+              <input type="text" id="yearENew" class="form-control" placeholder="Año/s en los que se realizó el estudio"
+                required />
+              <label class="form-label" for="formNewEdu">Año</label>
+            </div>
+            <div class="form-outline mb-5">
+              <input type="text" id="logoENew" class="form-control"
+                placeholder="Ingrese la URL del logo de la institución" />
+              <label class="form-label" for="formNewEdu">Logo</label>
+            </div>
+          </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="add-education-form" class="btn btn-secondary" data-mdb-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid" >Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal editar educacion-->
+    <div class="modal fade" id="editEducationM" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar la educación {{editEducation.titleE}}</h5>
+            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-outline mb-5 mt-3">
+              <input type="text" id="titleEEdit" class="form-control" placeholder="Nombre del título obtenido"
+                required />
+              <label class="form-label" for="formNewEdu">Título</label>
+            </div>
+            <div class="form-outline mb-5">
+              <input type="text" id="institutionEEdit" class="form-control" placeholder="Nombre de la institución"
+                required />
+              <label class="form-label" for="formNewEdu">Institución</label>
+            </div>
+            <div class="form-outline mb-5">
+              <input type="text" id="placeEEdit" class="form-control"
+                placeholder="Ciudad o plataforma en la que se realizó el estudio" required />
+              <label class="form-label" for="formNewEdu">Lugar</label>
+            </div>
+            <div class="form-outline mb-5">
+              <input type="text" id="yearEEdit" class="form-control" placeholder="Año/s en los que se realizó el estudio"
+                required />
+              <label class="form-label" for="formNewEdu">Año</label>
+            </div>
+            <div class="form-outline mb-5">
+              <input type="text" id="logoEEdit" class="form-control"
+                placeholder="Ingrese la URL del logo de la institución" />
+              <label class="form-label" for="formNewEdu">Logo</label>
+            </div>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal borrar educacion-->
+    <div class="modal fade" id="deleteEducationM" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Borrar educación</h5>
+            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h6 class="text-dark">Esta seguro que desea borrar la educación {{editEducation.titleE}}?</h6>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">No</button>
+            <button (click)="onDeleteEducation(deleteEducation.id)" type="button" class="btn btn-danger">Si</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+<!-- Educacion con Tabla >
             <div class="col-lg-12 shadow">
               <table class="table text-secondary">
                 <thead class="bg-light text-primary">
@@ -56,115 +207,4 @@
                 </tbody>
               </table>
             </div>
-          </div>
-
-          <!-- Tarjetas con educaciones -->
-          <!--div class="row row-cols-1 row-cols-md-2 g-4">
-                <div class="col" data-aos="zoom-in">
-                  <div  class="card shadow-15-strong">
-                    <img src="../../../assets/icons/study-ap.jpg" alt="logoAP" class="card-img-top"/>
-                    <button class="btn btn-dark text-primary" type="button" data-mdb-toggle="collapse" data-mdb-target="#study-ap" aria-expanded="false" aria-controls="collapseExample">
-                        <i class="bi bi-chevron-compact-down"></i>
-                      </button>
-                      <div class="collapse" id="study-ap">
-                        <div class="card-body bg-dark text-light">
-                            <h5 class="card-title text-center text-primary">Desarrollador Full Stack jr</h5>
-                            <p class="card-text fs-6 text-start">
-                              Argentina Programa <br>
-                              Ministerio de Desarrollo Productivo <br>
-                              <em class="text-secondary">Online</em>
-                            </p>
-                          </div>
-                          <div class="card-footer bg-dark border-light text-info d-flex justify-content-end">
-                              2022
-                          </div>
-                      </div>
-                  </div>
-                </div>
-                <div class="col" data-aos="zoom-in">
-                    <div class="card shadow-15-strong">
-                      <img src="../../../assets/icons/study-MU.jpg" alt="logoMU" class="card-img-top"/>
-                      <button class="btn btn-dark text-primary" type="button" data-mdb-toggle="collapse" data-mdb-target="#study-mu" aria-expanded="false" aria-controls="collapseExample">
-                          <i class="bi bi-chevron-compact-down"></i>
-                        </button>
-                        <div class="collapse" id="study-mu">
-                          <div class="card-body bg-dark text-light">
-                              <h5 class="card-title text-center text-primary">Maestría en Urbanismo</h5>
-                              <p class="card-text fs-6 text-start">
-                                Facultad de Arquitectura Urbanismo y Diseño <br>
-                                1er año completado<br>
-                                <em class="text-secondary">Córdoba</em>
-                              </p>
-                            </div>
-                            <div class="card-footer bg-dark border-light text-info d-flex justify-content-end">
-                                2022
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col" data-aos="zoom-in">
-                    <div class="card shadow-15-strong">
-                      <img src="../../../assets/icons/study-unc.jpg" alt="logoUNC" class="card-img-top"/>
-                      <button class="btn btn-dark text-primary" type="button" data-mdb-toggle="collapse" data-mdb-target="#study-unc" aria-expanded="false" aria-controls="collapseExample">
-                          <i class="bi bi-chevron-compact-down"></i>
-                        </button>
-                        <div class="collapse" id="study-unc">
-                          <div class="card-body bg-dark text-light">
-                              <h5 class="card-title text-center text-primary">Arquitecto Urbanista</h5>
-                              <p class="card-text fs-6 text-start">
-                                Facultad de Arquitectura Urbanismo y Diseño <br>
-                                <em class="text-secondary">Córdoba</em>
-                              </p>
-                            </div>
-                            <div class="card-footer bg-dark border-light text-info d-flex justify-content-end">
-                                2016
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col" data-aos="zoom-in">
-                    <div class="card shadow-15-strong">
-                      <img src="../../../assets/imgpj/dummyimg.jpg" alt="logoAP" class="card-img-top"/>
-                      <button class="btn btn-dark text-primary" type="button" data-mdb-toggle="collapse" data-mdb-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                          <i class="bi bi-chevron-compact-down"></i>
-                        </button>
-                        <div class="collapse" id="collapseExample">
-                          <div class="card-body bg-dark text-light">
-                              <h5 class="card-title text-center text-primary">Técnico en Armado y reparacion de PC</h5>
-                              <p class="card-text fs-6 text-start">
-                                Instituto F.U.C.E. <br>
-                                <em class="text-secondary">Córdoba</em>
-                              </p>
-                            </div>
-                            <div class="card-footer bg-dark border-light text-info d-flex justify-content-end">
-                                2003
-                            </div>
-                        </div>
-                        <div class="col" data-aos="zoom-in">
-                            <div class="card shadow-15-strong">
-                              <img src="../../../assets/icons/study-ac.jpg" alt="logoAC" class="card-img-top"/>
-                              <button class="btn btn-dark text-primary" type="button" data-mdb-toggle="collapse" data-mdb-target="#study-ac" aria-expanded="false" aria-controls="collapseExample">
-                                  <i class="bi bi-chevron-compact-down"></i>
-                                </button>
-                                <div class="collapse" id="study-ac">
-                                  <div class="card-body bg-dark text-light">
-                                      <h5 class="card-title text-center text-primary">Bachiller en Economía y Gestión de las Organizaciones</h5>
-                                      <p class="card-text fs-6 text-start">
-                                        Instituto Dr Alexis Carrel <br>
-                                        <em class="text-secondary">Río Tercero</em>
-                                      </p>
-                                    </div>
-                                    <div class="card-footer bg-dark border-light text-info d-flex justify-content-end">
-                                        2001
-                                    </div>
-                                </div>
-                            </div>
-                          </div>
-                    </div>
-                  </div>
-             </div>
-        </div>
-    </div>
-</div-->
-        </div>
-      </div>
+          </div-->

@@ -1,18 +1,109 @@
 <div class="header-background justify-content-center align-items-center" id="banner">
     <div class="bgimage col-12">
-        <img class="imgBg" src="../../../assets/images/fondoskyLG.png" alt="ImgFondo"> 
+        <img class="imgBg" src="../../../assets/images/fondoskyLG.png" alt="ImgFondo" />
     </div>
-    <div class="profileContainer col-12"> 
-        <img class="profilePic" src="{{persona.img}}" alt="avatarPic">
+    <div class="profileContainer col-12">
+        <img class="profilePic" src="{{ profile.imgUrl }}" alt="avatarPic" />
     </div>
     <div class="nombreyTitulo col-xs-12">
         <div class="text-box">
-            
-            <h1 data-aos="fade-right" data-aos-duration='5000' id="nombre">{{persona.nombre}} {{persona.apellido}} <!--a class="text-info" style="font-size: 25%"><i class="bi bi-pencil-square"></i></a--></h1> 
-            
-            <h2 data-aos="fade-left" data-aos-delay="100" data-aos-duration='5000'>{{persona.profesion1}} <!--a class="text-info" style="font-size: 45%"><i class="bi bi-pencil-square"></i></a--></h2>
-            
-            <h2 data-aos="fade-left" data-aos-delay="100" data-aos-duration='5000'>{{persona.profesion2}} <!--a class="text-info" style="font-size: 45%"><i class="bi bi-pencil-square"></i></a--></h2>
+            <h1 data-aos="fade-right" data-aos-duration="5000" id="nombre">
+                {{ profile.name }} {{ profile.lastname }}
+                <button *ngIf="isLogged" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#nombreyappmodal">
+                    <i class="bi bi-pencil-square"></i>
+                </button>
+            </h1>
+
+            <h2 data-aos="fade-left" data-aos-delay="100" data-aos-duration="5000">
+                {{ profile.profession1 }}
+                <button *ngIf="isLogged" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#profesionModal">
+                    <i class="bi bi-pencil-square"></i>
+                </button>
+            </h2>
+            <h2 data-aos="fade-left" data-aos-delay="100" data-aos-duration="5000">
+                {{ profile.profession2 }}
+            </h2>
         </div>
     </div>
 </div>
+
+<!-- Modal Cambio de nombre>
+<div class="modal fade" id="nombreyappmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                    Modificar los datos personales
+                </h5>
+                <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form #editFormNyA="ngForm">
+                    <div class="form-group mb-2">
+                        <label class="p-2 text-primary" for="nombre">Nombre/s</label>
+                        <input type="text" ngModel="{{ editPersona.nombre }}" class="form-control" id="nombre"
+                            name="nombre" placeholder="Ingrese su nombre completo" required />
+                        <input type="hidden" ngModel="{{editPersona.id}}" name="id" class="form-control" id="id">
+                        <input type="hidden" ngModel="{{editPersona.img}}" name="img" class="form-control" id="img">
+                        <input type="hidden" ngModel="{{editPersona.profesion1}}" name="profesion1" class="form-control"
+                            id="profesion1">
+                        <input type="hidden" ngModel="{{editPersona.profesion2}}" name="profesion2" class="form-control"
+                            id="profesion2">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label class="p-2 text-primary" for="apellido">Apellido/s</label>
+                        <input type="text" ngModel="{{ editPersona.apellido }}" class="form-control" id="apellido"
+                            name="apellido" placeholder="Ingrese su/s apellido/s" required />
+                    </div>
+                    <div class="modal-footer">
+                        <button (click)="onUpdatePersona(editPersona)" type="button" class="btn btn-primary">
+                            Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div-->
+
+    <!-- Modal Cambio de profesión>
+    <div class="modal fade" id="profesionModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                    Modificar la profesión
+                </h5>
+                <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form #editFormPP="ngForm">
+                    <div class="form-group mb-2">
+                        <label class="p-2 text-primary" for="profesion1">Profesión</label>
+                        <input type="text" ngModel="{{ editPersona.profesion1 }}" class="form-control" id="profesion1"
+                            name="nombre" placeholder="Ingrese su profesión" required />
+                        <input type="hidden" ngModel="{{editPersona.id}}" name="id" class="form-control" id="id">
+                        <input type="hidden" ngModel="{{editPersona.img}}" name="img" class="form-control" id="img">
+                        <input type="hidden" ngModel="{{editPersona.nombre}}" name="profesion1" class="form-control"
+                            id="profesion1">
+                        <input type="hidden" ngModel="{{editPersona.apellido}}" name="profesion2" class="form-control"
+                            id="profesion2">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label class="p-2 text-primary" for="profesion2">Otra profesión</label>
+                        <input type="text" ngModel="{{ editPersona.profesion2 }}" class="form-control" id="profesion2"
+                            name="apellido" placeholder="Ingrese otra profesión"/>
+                        <span class="text-danger"><small>*Este campo puede quedar vacío</small></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button (click)="onUpdatePersona(editPersona)" type="button" class="btn btn-primary">
+                            Guardar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div-->

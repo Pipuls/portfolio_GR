@@ -9,10 +9,10 @@ import { EducationService } from 'src/app/service/education.service';
   styleUrls: ['./new-edu.component.css']
 })
 export class NewEduComponent implements OnInit {
-  tituloE: string;
-  institucionE: string;
-  lugarE: string;
-  anoE: string;
+  titleE: string;
+  institutionE: string;
+  placeE: string;
+  yearE: string;
   logoE: string;
   
   constructor(private educationS: EducationService, private router: Router) { }
@@ -21,15 +21,6 @@ export class NewEduComponent implements OnInit {
   }
 
   onCreate(): void {
-    const educ = new Education(this.tituloE, this.institucionE, this.lugarE, this.anoE, this.logoE);
-    this.educationS.save(educ).subscribe(
-      data => {
-      alert("Educación añadida correctamente");
-      this.router.navigate(['']);
-    }, err =>{
-      alert("Falló");
-      this.router.navigate(['']);
-    }
-    )
+  
   }
 }

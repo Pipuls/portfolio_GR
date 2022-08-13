@@ -27,13 +27,6 @@ export class EditEduComponent implements OnInit {
   }
 
   onUpdate(): void {
-    const id = this.activatedRouter.snapshot.params['id'];
-    this.educationS.update(id, this.editedu).subscribe(
-      data => {
-      this.router.navigate(['']);
-    }, err => {
-      alert("Se produjo un error al modificar la educación");
-      this.router.navigate(['']);
-    })
+ 
   }
 }
